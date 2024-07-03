@@ -1,0 +1,23 @@
+databaseChangeLog:
+-  changeSet:
+    id:  create-statistics-view
+    author:  Magdalenacze
+    changes:
+    -  createView:
+        catalogName:  statistics
+        encoding:  UTF-8
+        fullDefinition:  false
+        relativeToChangelogFile:  true
+        remarks:  A String
+        replaceIfExists:  false
+        schemaName:  public
+        selectQuery:   SELECT authorsName, authorsSurname, percentageOfBorrows
+           FROM 
+            (SELECT authorsName, authorsSurname, (COUNT(*) / (SELECT COUNT(*) FROM borrows WHERE returnDate IS NULL)) * 100 AS percentageFfBorrows
+            FROM borrows
+            JOIN books ON (books.id = borrows.bookId)
+            JOIN readers ON (readers.id = borrows.readersId)
+            WHERE returnDate IS NULL
+            GROUP BY name, surname) a
+            ORDER BY percentageOfBorrows, name, surname
+        viewName:  statisticsView

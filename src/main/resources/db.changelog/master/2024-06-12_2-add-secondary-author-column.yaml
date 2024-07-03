@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-secondary-author-column
+      author: Magdalenacze
+      changes:
+        - addColumn:
+            tableName: books
+            columns:
+              - column:
+                  name: secondary_author
+                  type: varchar(255)

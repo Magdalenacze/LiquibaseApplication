@@ -1,0 +1,13 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  drop-secondary-author-column
+       author:  Magdalenacze
+       changes:
+         -  dropColumn:
+              catalogName:  book
+              columnName:  secondary_author
+              columns:
+                -  column:
+                     name:  secondary_author
+              schemaName:  public
+              tableName:  books

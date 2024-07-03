@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-borrow-table
+      author: Magdalenacze
+      changes:
+        - createTable:
+            tableName: borrows
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: borrow_technical_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: reader_id
+                  type: long
+                  constraints:
+                    foreignKeyName: fk_borrows_readers
+                    references: readers(id)
+                    nullable: false
+              - column:
+                  name: book_id
+                  type: long
+                  constraints:
+                    foreignKeyName: fk_borrows_books
+                    references: books(id)
+                    nullable: false
+              - column:
+                  name: borrow_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: return_date
+                  type: timestamp

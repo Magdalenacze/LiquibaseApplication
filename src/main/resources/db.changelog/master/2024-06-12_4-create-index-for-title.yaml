@@ -1,0 +1,16 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  create-index-for-title
+       author:  Magdalenacze
+       changes:
+         - createIndex:
+             clustered:  true
+             columns:
+               - column:
+                   descending:  true
+                   name:  title
+             indexName:  idx_title
+             schemaName:  public
+             tableName:  books
+             tablespace:  A String
+             unique:  true

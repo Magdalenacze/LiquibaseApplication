@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-the-authors-name-and-surname-columns
+      author: Magdalenacze
+      changes:
+        - addColumn:
+            tableName: books
+            columns:
+              - column:
+                  name: authors_name
+                  type: varchar(155)
+              - column:
+                  name: authors_surname
+                  type: varchar(155)

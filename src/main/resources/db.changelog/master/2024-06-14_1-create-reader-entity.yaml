@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-readers-table
+      author: Magdalenacze
+      changes:
+        - createTable:
+            tableName: readers
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: reader_technical_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(155)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(155)
+                  constraints:
+                    nullable: false

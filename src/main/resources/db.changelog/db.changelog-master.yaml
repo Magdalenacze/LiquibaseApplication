@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - include:
+      file: db.changelog/master/2024-06-12_1-create-book-entity.yaml
+  - include:
+      file: db.changelog/master/2024-06-12_2-add-secondary-author-column.yaml
+  - include:
+      file: db.changelog/master/2024-06-12_3-drop-secondary-author-column.yaml
+  - include:
+      file: db.changelog/master/2024-06-12_4-create-index-for-title.yaml
+  - include:
+      file: db.changelog/master/2024-06-14_1-create-reader-entity.yaml
+  - include:
+      file: db.changelog/master/2024-06-14_2-add-the-authors-name-and-surname-columns.yaml
+  - include:
+      file: db.changelog/master/2024-06-14_3-create-borrow-entity.yaml
+  - include:
+      file: db.changelog/master/2024-06-14_4-create-statistics-view.yaml
